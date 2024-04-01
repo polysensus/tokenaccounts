@@ -1,4 +1,4 @@
-.env.local
-.env.secret
+# forge tools auto load .env but nothing else
+.env
 build
 cache
