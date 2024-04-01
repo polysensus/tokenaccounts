@@ -4,3 +4,6 @@
 [submodule "lib/contracts"]
 	path = lib/contracts
 	url = https://github.com/tokenbound/contracts
+[submodule "lib/tokenbound-contracts"]
+	path = lib/tokenbound-contracts
+	url = https://github.com/tokenbound/contracts
