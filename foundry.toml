@@ -1,6 +1,18 @@
 [profile.default]
-src = "src"
-out = "out"
-libs = ["lib"]
+src = "contracts"
+out = "build/forge"
+libs = ["lib", "node_modules"]
+test = 'tests/forge'
+fs_permissions = [{ access = "read", path = "./build/forge"}]
+
+[fmt]
+line_length = 120
+tab_width = 4
+
+[rpc_endpoints]
+opsepolia = "https://rpc.ankr.com/optimism_sepolia/${OP_SEPOLIA_API_KEY}"
+oplocal = "http://127.0.0.1:9545"
+[etherscan]
+opsepolia = {key = "${OP_ETHERSCAN_API_KEY}", url = "https://api-sepolia-optimistic.etherscan.io/api", chain=11155420}
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
