@@ -1,6 +1,6 @@
-name: test
-
-on: workflow_dispatch
+name: ci
+on:
+  push:
 
 env:
   FOUNDRY_PROFILE: ci
@@ -22,13 +22,17 @@ jobs:
         with:
           version: nightly
 
-      - name: Run Forge build
+      - name: Setup go-task
         run: |
-          forge --version
-          forge build --sizes
+          sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
+          echo "${PWD}/bin" >> $GITHUB_PATH
+
+      - name: Build
+        run: |
+          task build
         id: build
 
-      - name: Run Forge tests
+      - name: Tests
         run: |
-          forge test -vvv
+          task test
         id: test
