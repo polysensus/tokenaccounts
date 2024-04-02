@@ -1,0 +1,25 @@
+{
+  "name": "tokenaccounts",
+  "version": "1.0.0",
+  "description": "**token bound account implementation compatible with accounts based on ERC 1155 supply = 1 tokens**",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-foundry": "^1.1.1",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
+    "hardhat": "^2.22.2",
+    "tsconfig-paths": "^4.2.0",
+    "typechain": "^8.3.2"
+  }
+}

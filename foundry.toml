@@ -1,9 +1,11 @@
 [profile.default]
+solc_version = "0.8.13"
 src = "contracts"
-out = "build/forge"
-libs = ["lib", "node_modules"]
-test = 'tests/forge'
-fs_permissions = [{ access = "read", path = "./build/forge"}]
+out = "artifacts/forge"
+libs = ["lib"]
+test = 'tests'
+cache_path = "cache/forge"
+# fs_permissions = [{ access = "read", path = "./build/forge"}]
 
 [fmt]
 line_length = 120
