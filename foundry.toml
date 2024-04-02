@@ -5,16 +5,23 @@ out = "artifacts/forge"
 libs = ["lib"]
 test = 'tests'
 cache_path = "cache/forge"
+verbosity = 3
+
 # fs_permissions = [{ access = "read", path = "./build/forge"}]
+[profile.ci]
+verbosity = 4
 
 [fmt]
 line_length = 120
 tab_width = 4
 
 [rpc_endpoints]
-opsepolia = "https://rpc.ankr.com/optimism_sepolia/${OP_SEPOLIA_API_KEY}"
+op = "https://rpc.ankr.com/optimism/${ANKR_API_KEY}"
+# op = "https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}"
+opsepolia = "https://rpc.ankr.com/optimism_sepolia/${ANKR_API_KEY}"
 oplocal = "http://127.0.0.1:9545"
 [etherscan]
 opsepolia = {key = "${OP_ETHERSCAN_API_KEY}", url = "https://api-sepolia-optimistic.etherscan.io/api", chain=11155420}
+op = {key = "${OP_ETHERSCAN_API_KEY}", url = "https://api-optimistic.etherscan.io/api", chain=10}
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

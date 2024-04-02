@@ -4,23 +4,26 @@ pragma solidity ^0.8.13;
 import {Test, console} from "forge-std/Test.sol";
 import {Counter} from "contracts/Counter.sol";
 
-contract CounterTest is Test {
+contract CounterForkTest is Test {
     Counter public counter;
-    string url;
+
+    string RPC = vm.rpcUrl("op");
+    uint256 FORK_BLOCK = vm.envUint("OP_MAINNET_FORK_BLOCK");
+    uint256 fork;
 
     function setUp() public {
-        counter = new Counter();
-        counter.setNumber(0);
-        url = vm.envOr(string("MY_VAR"), string("notok"));
+
+      if (!vm.envOr("ENABLE_FORK_TESTS", false)) return;
+
+      fork = vm.createFork(RPC, FORK_BLOCK);
+      counter = new Counter();
     }
 
     function test_Increment() public {
+
+        vm.skip(!vm.envOr("ENABLE_FORK_TESTS", false));
+
         counter.increment();
         assertEq(counter.number(), 1);
-    }
-
-    function testFuzz_SetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
     }
 }
