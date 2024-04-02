@@ -17,6 +17,7 @@ tasks:
     cmds:
       - forge build
       - npx hardhat typechain
+
   test:
     desc: run the tests
     cmds:
