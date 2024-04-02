@@ -8,7 +8,7 @@ contract CounterForkTest is Test {
     Counter public counter;
 
     string RPC = vm.rpcUrl("op");
-    uint256 FORK_BLOCK = vm.envUint("OP_MAINNET_FORK_BLOCK");
+    uint256 FORK_BLOCK = vm.envOr("OP_MAINNET_FORK_BLOCK", 111329307);
     uint256 fork;
 
     function setUp() public {
