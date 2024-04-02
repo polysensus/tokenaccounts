@@ -6,7 +6,8 @@ env:
   FOUNDRY_PROFILE: ci
 
 jobs:
-  check:
+  test:
+    environment: ci
     strategy:
       fail-fast: true
 
@@ -44,6 +45,9 @@ jobs:
         id: build
 
       - name: Tests
+        env:
+          OP_ETHERSCAN_API_KEY: ${{ secrets.OP_ETHERSCAN_API_KEY }}
+          ANKR_API_KEY: ${{ secrets.ANKR_API_KEY }}
         run: |
           task test
         id: test
